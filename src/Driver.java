@@ -13,14 +13,7 @@ public class Driver {
 
 	private static void ChoicesUser() {
 		keyboard = new Scanner(System.in);
-//		score = new Scoring();
-//		score.dataChanged();
-//		score.dataChanged();
-//		score.dataChanged();
-//		score.dataChanged();
-
 		int answer = 0;
-
 		while (answer != 8) {
 
 			System.out.println("Press 1 --- New Game");

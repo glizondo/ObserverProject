@@ -2,11 +2,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class Scoring implements Subject {
-	int scoreLocal;
-	int scoreVisitant;
-	int quarter;
-	final int maxQuarter = 4;
-	ArrayList<Observer> observerList;
+	private int scoreLocal;
+	private int scoreVisitant;
+	private int quarter;
+	private final int maxQuarter = 4;
+	public ArrayList<Observer> observerList;
 
 	public Scoring() {
 		observerList = new ArrayList<Observer>();
