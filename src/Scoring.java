@@ -14,14 +14,12 @@ public class Scoring implements Subject {
 
 	@Override
 	public void registerObserver(Observer o) {
-		// TODO Auto-generated method stub
-
+		observerList.add(o);
 	}
 
 	@Override
 	public void unregisterObserver(Observer o) {
-		// TODO Auto-generated method stub
-
+		observerList.remove(o);
 	}
 
 	@Override
