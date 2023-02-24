@@ -3,6 +3,8 @@ import java.util.Scanner;
 public class Driver {
 
 	static Scanner keyboard;
+	static KeepTrackScore keepTrackScore;
+	static Scoring score;
 
 	public static void main(String[] args) {
 		ChoicesUser();
@@ -11,10 +13,16 @@ public class Driver {
 
 	private static void ChoicesUser() {
 		keyboard = new Scanner(System.in);
+//		score = new Scoring();
+//		score.dataChanged();
+//		score.dataChanged();
+//		score.dataChanged();
+//		score.dataChanged();
+
 		int answer = 0;
-		
+
 		while (answer != 8) {
-			
+
 			System.out.println("Press 1 --- New Game");
 			System.out.println("Press 2 --- Simulate one quarter");
 			System.out.println("Press 3 --- Print current score");
@@ -27,13 +35,15 @@ public class Driver {
 			answer = keyboard.nextInt();
 
 			if (answer == 1) {
-
+				score = new Scoring();
+				keepTrackScore = new KeepTrackScore();
+				score.registerObserver(keepTrackScore);
 			}
 			if (answer == 2) {
-
+				score.dataChanged();
 			}
 			if (answer == 3) {
-
+				keepTrackScore.display();
 			}
 			if (answer == 4) {
 

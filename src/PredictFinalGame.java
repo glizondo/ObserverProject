@@ -5,7 +5,7 @@ public class PredictFinalGame implements Observer {
 	double percentageVisitantPrediction;
 
 	@Override
-	public void update(int scoreLocal, int scoreVisitant, boolean isQuarter) {
+	public void update(int scoreLocal, int scoreVisitant, int quarter) {
 		double localPercentage = Math.floor(Math.random() * totalPercentagePrediction);
 		this.percentageLocalPrediction = localPercentage;
 		this.percentageVisitantPrediction = totalPercentagePrediction - localPercentage;
