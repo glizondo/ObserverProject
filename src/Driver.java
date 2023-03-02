@@ -37,43 +37,47 @@ public class Driver {
 
 			answer = keyboard.nextInt();
 
-			if (answer == 1) {
-				Game game = new Game();
-				ArrayList<Team> teamsPlaying = new ArrayList<>();
-				teamsPlaying = game.getTeamsPlaying();
+			choiceSpecificSelection(answer);
 
-				Team team1 = teamsPlaying.get(0);
-				Team team2 = teamsPlaying.get(1);
+		}
+	}
 
-				score = new Scoring(team1, team2);
+	private static void choiceSpecificSelection(int answer) {
+		if (answer == 1) {
+			Game game = new Game();
+			ArrayList<Team> teamsPlaying = new ArrayList<>();
+			teamsPlaying = game.getTeamsPlaying();
 
-				score.registerObserver(predictFinalGame);
-				score.registerObserver(keepTrackScore);
-				score.registerObserver(news);
-				score.notifyObservers();
-			}
-			if (answer == 2) {
-				score.startQuarter();
-			}
-			if (answer == 3) {
-				score.simulateQuarter();
-			}
-			if (answer == 4) {
-				keepTrackScore.displayCurrentScore();
-			}
-			if (answer == 5) {
-				predictFinalGame.displayPercentageFinalResultBasedOnCurrentScore();
-			}
-			if (answer == 6) {
-				predictFinalGame.displaySimulationPredictionGame();
-			}
-			if (answer == 7) {
-				keepTrackScore.displayAllScoresFinishedGames();
-			}
-			if (answer == 8) {
-				news.displayNewsTitleBasedOnScore();
-			}
+			Team team1 = teamsPlaying.get(0);
+			Team team2 = teamsPlaying.get(1);
 
+			score = new Scoring(team1, team2);
+
+			score.registerObserver(predictFinalGame);
+			score.registerObserver(keepTrackScore);
+			score.registerObserver(news);
+			score.notifyObservers();
+		}
+		if (answer == 2) {
+			score.startQuarter();
+		}
+		if (answer == 3) {
+			score.simulateQuarter();
+		}
+		if (answer == 4) {
+			keepTrackScore.displayCurrentScore();
+		}
+		if (answer == 5) {
+			predictFinalGame.displayPercentageFinalResultBasedOnCurrentScore();
+		}
+		if (answer == 6) {
+			predictFinalGame.displaySimulationPredictionGame();
+		}
+		if (answer == 7) {
+			keepTrackScore.displayAllScoresFinishedGames();
+		}
+		if (answer == 8) {
+			news.displayNewsTitleBasedOnScore();
 		}
 	}
 
