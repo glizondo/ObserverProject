@@ -59,19 +59,19 @@ public class Driver {
 				score.simulateQuarter();
 			}
 			if (answer == 4) {
-				keepTrackScore.display();
+				keepTrackScore.displayCurrentScore();
 			}
 			if (answer == 5) {
-				predictFinalGame.displayPercentageResultBasedOnRealResult();
+				predictFinalGame.displayPercentageFinalResultBasedOnCurrentScore();
 			}
 			if (answer == 6) {
 				predictFinalGame.displaySimulationPredictionGame();
 			}
 			if (answer == 7) {
-				keepTrackScore.showAllScoresFinishedGames();
+				keepTrackScore.displayAllScoresFinishedGames();
 			}
 			if (answer == 8) {
-				news.display();
+				news.displayNewsTitleBasedOnScore();
 			}
 
 		}

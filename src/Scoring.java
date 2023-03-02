@@ -46,9 +46,9 @@ public class Scoring implements Subject {
 	}
 
 	private int increaseScore() {
-		if (quarter == maxQuarter) {
-			return 0;
-		}
+//		if (quarter == maxQuarter) {
+//			return 0;
+//		}
 		return (int) Math.floor(Math.random() * 35);
 	}
 
@@ -66,7 +66,7 @@ public class Scoring implements Subject {
 			notifyObservers();
 			System.out.println("Quarter " + quarter + " started");
 		} else {
-			System.out.println("First you must finish the quarter");
+			System.out.println("First you must finish the quarter/Start new game");
 		}
 	}
 
@@ -80,11 +80,13 @@ public class Scoring implements Subject {
 				System.out.println("Quarter " + quarter + " simulated and finished");
 			} else {
 				quarterIsFinished = true;
+				team1.score += increaseScore();
+				team2.score += increaseScore();
 				notifyObservers();
 				System.out.println("End of game");
 			}
 		} else {
-			System.out.println("You have to start the quarter first");
+			System.out.println("You have to start the quarter first/Start new game");
 		}
 	}
 

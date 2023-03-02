@@ -18,7 +18,7 @@ public class PredictFinalGame implements Observer {
 
 	public void displaySimulationPredictionGame() {
 		if (quarter <= 1) {
-			predictFinalResultGame();
+			calculateSimulationEndedGame();
 			System.out.println("Result simulation: " + team1.name + ": " + simulatedLocalScore + " - " + team2.name
 					+ ": " + simulatedVisitantScore);
 		} else {
@@ -27,18 +27,18 @@ public class PredictFinalGame implements Observer {
 
 	}
 
-	public void predictFinalResultGame() {
+	private void calculateSimulationEndedGame() {
 		increaseScoreSimulator();
 	}
 
 	private void increaseScoreSimulator() {
 		simulatedLocalScore = team1.score;
 		simulatedVisitantScore = team2.score;
-		simulatedLocalScore += (int) Math.floor(Math.random() * incrementMultiplier(quarter));
-		simulatedVisitantScore += (int) Math.floor(Math.random() * incrementMultiplier(quarter));
+		simulatedLocalScore += (int) Math.floor(Math.random() * incrementVariableSimulation(quarter));
+		simulatedVisitantScore += (int) Math.floor(Math.random() * incrementVariableSimulation(quarter));
 	}
 
-	private int incrementMultiplier(int quarter) {
+	private int incrementVariableSimulation(int quarter) {
 		int increment = 0;
 		if (quarter == 0) {
 			increment = 140;
@@ -49,13 +49,13 @@ public class PredictFinalGame implements Observer {
 		return increment;
 	}
 
-	public void displayPercentageResultBasedOnRealResult() {
+	public void displayPercentageFinalResultBasedOnCurrentScore() {
 		setPercentagePredictionConsideringQuarter();
 		System.out.println(team1.name + " percentage: " + percentageLocalPrediction);
 		System.out.println(team2.name + " Visitant team percentage: " + percentageVisitantPrediction);
 	}
 
-	public void setPercentagePredictionConsideringQuarter() {
+	private void setPercentagePredictionConsideringQuarter() {
 		calculatePercentagePerQuarter(quarter);
 	}
 
@@ -67,20 +67,20 @@ public class PredictFinalGame implements Observer {
 		}
 		if (team1.score > team2.score) {
 			percentageLocalPrediction = Math
-					.floor((totalPercentagePrediction / 2) * (1 + incrementOrDecrementPerQuarter(quarter)));
+					.floor((totalPercentagePrediction / 2) * (1 + incrementVariablePrediction(quarter)));
 			percentageVisitantPrediction = Math
-					.floor((totalPercentagePrediction / 2) * (1 - incrementOrDecrementPerQuarter(quarter)));
+					.floor((totalPercentagePrediction / 2) * (1 - incrementVariablePrediction(quarter)));
 		}
 		if (team1.score < team2.score) {
 			percentageLocalPrediction = Math
-					.floor((totalPercentagePrediction / 2) * (1 - incrementOrDecrementPerQuarter(quarter)));
+					.floor((totalPercentagePrediction / 2) * (1 - incrementVariablePrediction(quarter)));
 			percentageVisitantPrediction = Math
-					.floor((totalPercentagePrediction / 2) * (1 + incrementOrDecrementPerQuarter(quarter)));
+					.floor((totalPercentagePrediction / 2) * (1 + incrementVariablePrediction(quarter)));
 		}
 
 	}
 
-	private double incrementOrDecrementPerQuarter(int quarter) {
+	private double incrementVariablePrediction(int quarter) {
 		double difference = 0.0;
 		if (quarter == 0) {
 			difference = 0.0;

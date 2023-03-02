@@ -3,17 +3,15 @@ public class NewsTitleGenerator implements Observer {
 
 	private Team team1, team2;
 	private int quarter;
-	private boolean quarterIsFinished;
 
 	@Override
 	public void update(Team team1, Team team2, int quarter, boolean quarterIsFinished) {
 		this.team1 = team1;
 		this.team2 = team2;
 		this.quarter = quarter;
-		this.quarterIsFinished = quarterIsFinished;
 	}
 
-	public void display() {
+	public void displayNewsTitleBasedOnScore() {
 		if (quarter == 4) {
 			if (team1.score > 80) {
 				System.out.println("The great " + team1.name + " wiped the " + team2.name
@@ -34,6 +32,8 @@ public class NewsTitleGenerator implements Observer {
 						+ team1.score + " - " + team2.score);
 			}
 
+		} else {
+			System.out.println("The game has to finish to generate news!");
 		}
 	}
 
