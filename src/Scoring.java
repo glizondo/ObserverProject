@@ -5,21 +5,18 @@ import java.util.Random;
 public class Scoring implements Subject {
 	private Team team1;
 	private Team team2;
+	private TeamsGenerator teamsGen = new TeamsGenerator();
+	private ArrayList<Team> teamsPlaying;
 	private int quarter;
 	private boolean quarterIsFinished = true;
 	private final int maxQuarter = 4;
 	public ArrayList<Observer> observerList;
-	private ArrayList<Team> teams = new ArrayList<>();
-	private ArrayList<Team> teamsPlaying = new ArrayList<>();
 
 	public Scoring() {
 		observerList = new ArrayList<Observer>();
-	}
-
-	public Scoring(Team team1, Team team2) {
-		observerList = new ArrayList<Observer>();
-		this.team1 = team1;
-		this.team2 = team2;
+		teamsPlaying = teamsGen.generateRandomTeamsPlaying();
+		this.team1 = teamsPlaying.get(0);
+		this.team2 = teamsPlaying.get(1);
 	}
 
 	public Scoring(Team team1, Team team2, int quarter, boolean quarterIsFinished) {
@@ -106,7 +103,5 @@ public class Scoring implements Subject {
 	public int getScoreVisitant() {
 		return team2.score;
 	}
-
-
 
 }

@@ -10,7 +10,7 @@ public class TeamsGenerator {
 		this.teamsPlaying = generateRandomTeamsPlaying();
 	}
 
-	private ArrayList<Team> generateRandomTeamsPlaying() {
+	public ArrayList<Team> generateRandomTeamsPlaying() {
 
 		createTeams();
 
@@ -31,7 +31,7 @@ public class TeamsGenerator {
 	}
 
 	private void createTeams() {
-		
+
 		Team team1 = new Team("LA Lakers");
 		Team team2 = new Team("Golden State Warrios");
 		Team team3 = new Team("Boston Celtics");

@@ -43,14 +43,14 @@ public class Driver {
 
 	private static void choiceSpecificSelection(int answer) {
 		if (answer == 1) {
-			TeamsGenerator game = new TeamsGenerator();
-			ArrayList<Team> teamsPlaying = new ArrayList<>();
-			teamsPlaying = game.getTeamsPlaying();
+//			TeamsGenerator game = new TeamsGenerator();
+//			ArrayList<Team> teamsPlaying = new ArrayList<>();
+//			teamsPlaying = game.getTeamsPlaying();
+//
+//			Team team1 = teamsPlaying.get(0);
+//			Team team2 = teamsPlaying.get(1);
 
-			Team team1 = teamsPlaying.get(0);
-			Team team2 = teamsPlaying.get(1);
-
-			score = new Scoring(team1, team2);
+			score = new Scoring();
 
 			score.registerObserver(predictFinalGame);
 			score.registerObserver(keepTrackScore);
