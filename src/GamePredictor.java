@@ -1,5 +1,5 @@
 
-public class PredictFinalGame implements Observer {
+public class GamePredictor implements Observer {
 	private Team team1;
 	private Team team2;
 	private int simulatedLocalScore;
@@ -16,7 +16,8 @@ public class PredictFinalGame implements Observer {
 		this.quarter = quarter;
 	}
 
-	public void displaySimulationPredictionGame() {
+	@Override
+	public void display() {
 		if (quarter <= 1) {
 			calculateSimulationEndedGame();
 			System.out.println("Result simulation: " + team1.name + ": " + simulatedLocalScore + " - " + team2.name

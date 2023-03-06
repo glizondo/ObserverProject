@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Game {
+public class TeamsGenerator {
 
 	private ArrayList<Team> teams = new ArrayList<>();
 	private ArrayList<Team> teamsPlaying = new ArrayList<>();
 
-	public Game() {
+	public TeamsGenerator() {
 		this.teamsPlaying = generateRandomTeamsPlaying();
 	}
 

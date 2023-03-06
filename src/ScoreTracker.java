@@ -1,6 +1,6 @@
 import java.util.ArrayList;
 
-public class KeepTrackScore implements Observer {
+public class ScoreTracker implements Observer {
 	private Team team1;
 	private Team team2;
 	private ArrayList<Scoring> scoresTeams = new ArrayList<>();
@@ -17,7 +17,8 @@ public class KeepTrackScore implements Observer {
 
 	}
 
-	public void displayCurrentScore() {
+	@Override
+	public void display() {
 		System.out.println("Current score in the game: " + team1.name + ": " + team1.score + " - " + team2.name + ": "
 				+ team2.score + " Quarter: " + quarter + " Is finished: " + quarterIsFinished);
 	}

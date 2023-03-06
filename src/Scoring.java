@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 
 public class Scoring implements Subject {
 	private Team team1;
@@ -8,6 +9,8 @@ public class Scoring implements Subject {
 	private boolean quarterIsFinished = true;
 	private final int maxQuarter = 4;
 	public ArrayList<Observer> observerList;
+	private ArrayList<Team> teams = new ArrayList<>();
+	private ArrayList<Team> teamsPlaying = new ArrayList<>();
 
 	public Scoring() {
 		observerList = new ArrayList<Observer>();
@@ -46,9 +49,7 @@ public class Scoring implements Subject {
 	}
 
 	private int increaseScore() {
-//		if (quarter == maxQuarter) {
-//			return 0;
-//		}
+
 		return (int) Math.floor(Math.random() * 35);
 	}
 
@@ -90,12 +91,6 @@ public class Scoring implements Subject {
 		}
 	}
 
-	public void printTableResults() {
-		for (int i = 0; i < observerList.size(); i++) {
-			observerList.get(i).toString();
-		}
-	}
-
 	public String getNameLocal() {
 		return team1.name;
 	}
@@ -111,5 +106,7 @@ public class Scoring implements Subject {
 	public int getScoreVisitant() {
 		return team2.score;
 	}
+
+
 
 }

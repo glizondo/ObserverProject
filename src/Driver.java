@@ -1,12 +1,11 @@
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Driver {
 
 	static Scanner keyboard;
-	static KeepTrackScore keepTrackScore;
-	static PredictFinalGame predictFinalGame;
+	static ScoreTracker keepTrackScore;
+	static GamePredictor predictFinalGame;
 	static NewsTitleGenerator news;
 	static Scoring score;
 
@@ -17,8 +16,8 @@ public class Driver {
 	private static void ChoicesUser() {
 
 		keyboard = new Scanner(System.in);
-		keepTrackScore = new KeepTrackScore();
-		predictFinalGame = new PredictFinalGame();
+		keepTrackScore = new ScoreTracker();
+		predictFinalGame = new GamePredictor();
 		news = new NewsTitleGenerator();
 
 		int answer = 0;
@@ -44,7 +43,7 @@ public class Driver {
 
 	private static void choiceSpecificSelection(int answer) {
 		if (answer == 1) {
-			Game game = new Game();
+			TeamsGenerator game = new TeamsGenerator();
 			ArrayList<Team> teamsPlaying = new ArrayList<>();
 			teamsPlaying = game.getTeamsPlaying();
 
@@ -65,19 +64,19 @@ public class Driver {
 			score.simulateQuarter();
 		}
 		if (answer == 4) {
-			keepTrackScore.displayCurrentScore();
+			keepTrackScore.display();
 		}
 		if (answer == 5) {
 			predictFinalGame.displayPercentageFinalResultBasedOnCurrentScore();
 		}
 		if (answer == 6) {
-			predictFinalGame.displaySimulationPredictionGame();
+			predictFinalGame.display();
 		}
 		if (answer == 7) {
 			keepTrackScore.displayAllScoresFinishedGames();
 		}
 		if (answer == 8) {
-			news.displayNewsTitleBasedOnScore();
+			news.display();
 		}
 	}
 

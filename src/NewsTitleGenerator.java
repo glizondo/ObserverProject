@@ -11,7 +11,8 @@ public class NewsTitleGenerator implements Observer {
 		this.quarter = quarter;
 	}
 
-	public void displayNewsTitleBasedOnScore() {
+	@Override
+	public void display() {
 		if (quarter == 4) {
 			if (team1.score > 80) {
 				System.out.println("The great " + team1.name + " wiped the " + team2.name
